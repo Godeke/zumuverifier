@@ -32,9 +32,55 @@ namespace MainarizumuVerifier
             cloned.ApplyHorizontalRules(rules);
             cloned.ApplyVerticalRules(rules);
             cloned.RemoveSolvedFromRowsAndColumns();
+            cloned.SolveUniqueRowsAndColumns();
 
 
             return cloned;
+        }
+        public void SolveUniqueRowsAndColumns()
+        {
+            //For each value in the puzzle
+            for (int solvedValue = 1; solvedValue <= Size; solvedValue++)
+            {
+                //Is it uniquely present in one cell of a row?
+                for (int row = 0; row < Size; row++)
+                {
+                    int count = 0;
+                    for (int col = 0; col < Size; col++)
+                    {
+                        if (Cells[row, col].LegalValues.Contains(solvedValue))
+                            count++;
+                    }
+                    if (count == 1) //Uniquely present in cell, remove other options
+                    {
+                        for (int col = 0; col < Size; col++)
+                        {
+                            if (Cells[row, col].LegalValues.Contains(solvedValue) && Cells[row, col].LegalValues.Count > 1)
+                                Cells[row, col].LegalValues.Set(solvedValue);
+                        }
+                    }
+                }
+
+                //Is it uniquely present in one cell of a column?
+                for (int col = 0; col < Size; col++)
+                {
+                    int count = 0;
+                    for (int row = 0; row < Size; row++)
+                    {
+                        if (Cells[row, col].LegalValues.Contains(solvedValue))
+                            count++;
+                    }
+                    if (count == 1) //Uniquely present in cell, remove other options
+                    {
+                        for (int row = 0; row < Size; row++)
+                        {
+                            if (Cells[row, col].LegalValues.Contains(solvedValue) && Cells[row, col].LegalValues.Count > 1)
+                                Cells[row, col].LegalValues.Set(solvedValue);
+                        }
+                    }
+                }
+
+            }
         }
 
         /// <summary>
@@ -55,8 +101,8 @@ namespace MainarizumuVerifier
         private void RemoveSolved(int solvedRow, int solvedColumn)
         {
             int solvedValue = Cells[solvedRow, solvedColumn].LegalValues[0]; //Only one value
-            for(int row = 0; row < Size; row++)
-                if(row != solvedRow) //Don't remove from the source of the solution
+            for (int row = 0; row < Size; row++)
+                if (row != solvedRow) //Don't remove from the source of the solution
                     if (Cells[row, solvedColumn].LegalValues.Contains(solvedValue))
                         Cells[row, solvedColumn].RemoveValue(solvedValue);
             for (int col = 0; col < Size; col++)
@@ -141,7 +187,7 @@ namespace MainarizumuVerifier
                 {
                     Cell newCell = new Cell(Size);
                     newCell.LegalValues.Set(Cells[row, column].LegalValues);
-                    cloned.Cells[row, column] =  newCell;
+                    cloned.Cells[row, column] = newCell;
                 }
             }
 
@@ -172,7 +218,7 @@ namespace MainarizumuVerifier
             {
                 foreach (int column in Enumerable.Range(0, Size))
                 {
-                    if (otherBoard.Cells[row,column].LegalValues != Cells[row, column].LegalValues)
+                    if (otherBoard.Cells[row, column].LegalValues != Cells[row, column].LegalValues)
                         return true;
                 }
             }
@@ -194,17 +240,17 @@ namespace MainarizumuVerifier
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(Size.ToString());
             for (int row = 0; row < Size; row++)
-            { 
+            {
                 for (int column = 0; column < Size; column++)
                 {
                     if (column > 0)
                         builder.Append(","); //Comma prior to value after first.
-                    builder.Append(Cells[row,column].LegalValues.ToString());
+                    builder.Append(Cells[row, column].LegalValues.ToString());
                     if (column < Size - 1) //Add horizontal rule except last.
                         if (Rules.HorizontalRules[row, column] == ' ')
                             builder.Append(",");
                         else
-                            builder.Append($",{Rules.HorizontalRules[row,column]}");
+                            builder.Append($",{Rules.HorizontalRules[row, column]}");
                 }
                 builder.AppendLine();//Finalize data row
                 if (row < Size - 1) //Add border rules, except last.
@@ -213,7 +259,7 @@ namespace MainarizumuVerifier
                     {
                         if (column > 0)
                             builder.Append(",");
-                        if(Rules.VerticalRules[row, column] != ' ')
+                        if (Rules.VerticalRules[row, column] != ' ')
                             builder.Append(Rules.VerticalRules[row, column]);
                         if (column < Size - 1) //Add dummy spacing except third column
                             builder.Append(",");
@@ -221,7 +267,7 @@ namespace MainarizumuVerifier
                     builder.AppendLine(); //Finalize border row
                 }
             }
-            return builder.ToString();           
+            return builder.ToString();
         }
     }
 }
