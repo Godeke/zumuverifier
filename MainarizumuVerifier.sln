@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainarizumuVerifier", "MainarizumuVerifier.csproj", "{DA895C91-8AF3-4385-993E-56C3EFCA7F91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainarizumuTest", "MainarizumuTest\MainarizumuTest.csproj", "{71331BE1-002A-457F-83F6-9789DBEE430D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zumu", "CommandLine\Zumu\Zumu.csproj", "{218ED8F1-DB0A-40D9-81ED-FCBA1B0E403B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA895C91-8AF3-4385-993E-56C3EFCA7F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA895C91-8AF3-4385-993E-56C3EFCA7F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA895C91-8AF3-4385-993E-56C3EFCA7F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA895C91-8AF3-4385-993E-56C3EFCA7F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71331BE1-002A-457F-83F6-9789DBEE430D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71331BE1-002A-457F-83F6-9789DBEE430D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71331BE1-002A-457F-83F6-9789DBEE430D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71331BE1-002A-457F-83F6-9789DBEE430D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{218ED8F1-DB0A-40D9-81ED-FCBA1B0E403B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{218ED8F1-DB0A-40D9-81ED-FCBA1B0E403B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{218ED8F1-DB0A-40D9-81ED-FCBA1B0E403B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{218ED8F1-DB0A-40D9-81ED-FCBA1B0E403B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
