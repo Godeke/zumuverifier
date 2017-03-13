@@ -1,4 +1,4 @@
-## zumuverifier
+##zumuverifier
 #Mainarizumu Verifier
 
 This is a tool designed to assist with the iterative development 
@@ -9,9 +9,14 @@ the process will continue without running the earlier analysis again.
 
 #Running the solution
 
-The project builds in the output folder of the Zumu windows command line 
-project a command line tool that is called as `zumu <path to input>` and
-will output to standard output the solution or how far the Verifier could get.
+The main solution file is MainarizumuVerifier.sln which will load three 
+projects: MainarizumuVerifier (a class library with the solver code), 
+MainarizumuTest (with unit tests for the class library) and finally Zumu
+which builds a command line tool..
+
+This last project (Zumu) outputs to /bin/debug (or /bin/release if you switch
+build configuration to release) the executable `zumu.exe`. This called as `zumu <path to input>` and
+will output to standard output the solution or however far the Verifier could get.
 This can be output to a file using standard output redirection (`zumu filename >outfilename`).
 
 The `zumu.exe` executable can be moved anywhere as it has no dependencies on the project,
@@ -56,7 +61,4 @@ output from the above puzzle:
 v,,
 1,,2
 ```
-
-
-
 
