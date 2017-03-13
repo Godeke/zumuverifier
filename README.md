@@ -62,3 +62,7 @@ v,,
 1,,2
 ```
 
+TODO: Add additional Sudoku solver rules beyond row/column elimination (does dancing links work 
+when we may have an underconstrained puzzle?) https://www.ocf.berkeley.edu/~jchu/publicportal/sudoku/sudoku.paper.html
+TODO: Add to the output the maximum lookahead used to solve the puzzle (may be a good gauge of 
+difficulty)
