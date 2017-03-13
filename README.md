@@ -2,7 +2,7 @@
 #Mainarizumu Verifier
 
 This is a tool designed to assist with the iterative development 
-of [Mainarizumu](https://en.wikipedia.org/wiki/Mainarizumu/) puzzles.
+of [Mainarizumu]( https://en.wikipedia.org/wiki/Mainarizumu ) puzzles.
 The software uses a simple input format and the output is compatible 
 with another run, allowing incomplete puzzles to be edited and then 
 the process will continue without running the earlier analysis again.
